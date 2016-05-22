@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script data-require="jquery@2.0.3" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script data-require="angular.js@1.3.15" data-semver="1.3.15" src="https://code.angularjs.org/1.3.15/angular.js"></script>
+  
+    <script>
+var app = angular.module('transclusion', []);
+app.controller('configController', function ($scope) {
+  $scope.item = {id: 1, name: 'Jim'};
+  $scope.typeOfThing = "Awesome Person";
+});
+app.directive('headeredThing', function () {
+  return {
+    restrict: 'E',
+    transclude: true,
+    scope: {
+      item: '='
+    },
+    template: '<div>{{item.name}}</div>',
+    link: function (scope, elem, attrs, controller, transcludeFn) {
+      transcludeFn(scope, function(tElem, tScope) {
+        for (var count = 0; count < tElem.length; count++) {
+          if (tElem[count].attributes) {
+            var classes = tElem[count].attributes.getNamedItem('class').value.split(' ');
+            if (classes.indexOf('outer-header')>=0) {
+              angular.element(tElem[count]).insertBefore(elem);
+            } else if (classes.indexOf('inner-header') >=0) {
+              angular.element(tElem[count]).insertBefore(elem.find('div'));        
+            }
+          }
+        }
+      })
+    }
+  }
+});
+    </script>
+  </head>
+
+  <body ng-app="transclusion">
+    <div ng-controller="configController">
+      <headered-thing item="item">
+      <div class="outer-header">I am your outer header! This transclusion thing is easy after all! {{typeOfThing}}</div>
+      <div class="inner-header">It's a bird, it's a plane, it's transclusionMan. {{typeOfThing}}</div>
+      </headered-thing>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,103 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install', 'http', 'serever' ]
+2 info using npm@1.4.21
+3 info using node@v0.10.25
+4 verbose cache add [ 'http', null ]
+5 verbose cache add name=undefined spec="http" args=["http",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'http',
+6 verbose parsed url   path: 'http',
+6 verbose parsed url   href: 'http' }
+7 verbose cache add [ 'serever', null ]
+8 verbose cache add name=undefined spec="serever" args=["serever",null]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: 'serever',
+9 verbose parsed url   path: 'serever',
+9 verbose parsed url   href: 'serever' }
+10 silly lockFile 77b5f8e3-http http
+11 verbose lock http /home/goparties/.npm/77b5f8e3-http.lock
+12 silly lockFile 9c776891-serever serever
+13 verbose lock serever /home/goparties/.npm/9c776891-serever.lock
+14 silly lockFile 77b5f8e3-http http
+15 silly lockFile 77b5f8e3-http http
+16 silly lockFile 9c776891-serever serever
+17 silly lockFile 9c776891-serever serever
+18 verbose addNamed [ 'http', '' ]
+19 verbose addNamed [ null, '*' ]
+20 silly lockFile c1086ff9-http http@
+21 verbose lock http@ /home/goparties/.npm/c1086ff9-http.lock
+22 verbose addNamed [ 'serever', '' ]
+23 verbose addNamed [ null, '*' ]
+24 silly lockFile 7bd73f45-serever serever@
+25 verbose lock serever@ /home/goparties/.npm/7bd73f45-serever.lock
+26 silly addNameRange { name: 'http', range: '*', hasData: false }
+27 silly addNameRange { name: 'serever', range: '*', hasData: false }
+28 verbose request where is /serever
+29 verbose request registry https://registry.npmjs.org/
+30 verbose request id bfd00c40ddaa097d
+31 verbose url raw /serever
+32 verbose url resolving [ 'https://registry.npmjs.org/', './serever' ]
+33 verbose url resolved https://registry.npmjs.org/serever
+34 verbose request where is https://registry.npmjs.org/serever
+35 info trying registry request attempt 1 at 17:17:10
+36 http GET https://registry.npmjs.org/serever
+37 verbose registry.get https://registry.npmjs.org/http not expired, no request
+38 silly addNameRange number 2 { name: 'http', range: '*', hasData: true }
+39 silly addNameRange versions [ 'http', [ '0.0.0' ] ]
+40 verbose addNamed [ 'http', '0.0.0' ]
+41 verbose addNamed [ '0.0.0', '0.0.0' ]
+42 silly lockFile 5c64bf45-http-0-0-0 http@0.0.0
+43 verbose lock http@0.0.0 /home/goparties/.npm/5c64bf45-http-0-0-0.lock
+44 silly lockFile 5c64bf45-http-0-0-0 http@0.0.0
+45 silly lockFile 5c64bf45-http-0-0-0 http@0.0.0
+46 silly lockFile c1086ff9-http http@
+47 silly lockFile c1086ff9-http http@
+48 http 404 https://registry.npmjs.org/serever
+49 silly registry.get cb [ 404,
+49 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+49 silly registry.get     etag: '"8VAIXAUNWQPW2IQ0YU27R3KR4"',
+49 silly registry.get     'content-type': 'application/json',
+49 silly registry.get     'cache-control': 'max-age=0',
+49 silly registry.get     'content-length': '395',
+49 silly registry.get     'accept-ranges': 'bytes',
+49 silly registry.get     date: 'Wed, 11 May 2016 11:47:12 GMT',
+49 silly registry.get     via: '1.1 varnish',
+49 silly registry.get     age: '0',
+49 silly registry.get     connection: 'keep-alive',
+49 silly registry.get     'x-served-by': 'cache-ams4120-AMS',
+49 silly registry.get     'x-cache': 'MISS',
+49 silly registry.get     'x-cache-hits': '0',
+49 silly registry.get     'x-timer': 'S1462967231.915191,VS0,VE102',
+49 silly registry.get     vary: 'Accept-Encoding' } ]
+50 silly lockFile 7bd73f45-serever serever@
+51 silly lockFile 7bd73f45-serever serever@
+52 error 404 Not Found
+52 error 404
+52 error 404 'serever' is not in the npm registry.
+52 error 404 You should bug the author to publish it
+52 error 404
+52 error 404 Note that you can also install from a
+52 error 404 tarball, folder, or http url, or git url.
+53 error System Linux 4.2.0-35-generic
+54 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "http" "serever"
+55 error cwd /home/goparties/Desktop/angular Practice
+56 error node -v v0.10.25
+57 error npm -v 1.4.21
+58 error code E404
+59 verbose exit [ 1, true ]

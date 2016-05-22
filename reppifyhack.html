@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="js/angular.min.js"></script>
+	<script>
+		var app=angular.module("myapp",[]);
+		app.controller("MyController",MyController);
+		function MyController($scope,$rootScope){
+			$rootScope.count=0;
+			$scope.surname="Hello this is surname";
+			$scope.functionExecute=function(){
+				$rootScope.count=$rootScope.count+1;
+				$rootScope.$broadcast("broad",$rootScope.count);
+				console.log("execute function");
+			}
+		}
+
+		app.controller("MyController1",MyController1);
+		function MyController1($scope,$rootScope){
+			$scope.$on("broad",function(event,args){
+				$scope.name=args;
+			});
+		}
+	</script>
+</head>
+
+<body ng-app="myapp" style="margin-left: 100px;margin-top: 100px">
+	<label ng-controller="MyController" ng-bind="count">
+		
+	</label>
+	<button ng-controller="MyController" ng-click="functionExecute()" ng-init="functionExecute()">Click Me</button>
+	<br/>
+
+	<br/>
+	<br/>
+	<br/>
+	<label ng-controller="MyController1" ng-bind="name"></label>
+</body>
+
+</html>

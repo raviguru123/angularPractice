@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="js/angular.min.js"></script>
+
+	<script type="text/javascript">
+
+// follow this link for promises in angular js http://blog.ninja-squad.com/2015/05/28/angularjs-promises/
+var myapp=angular.module("myModule",[]);
+myapp.controller("myController",controllerFunction);
+myapp.factory("factoryFunction",factoryFunction);
+
+function controllerFunction($scope,factoryFunction){
+	$scope.name="Ravi Kumar Guru";
+	$scope.clickFunction=function(){
+		var val=factoryFunction.apicall().then(function(response){
+			console.log("value returned from controller=",response.data);
+		});
+	}
+}
+
+function factoryFunction($http,$q)
+{
+	var factory={};
+	var defer=$q.defer();
+	factory.apicall=function(){$http.get("http://www.goparties.com/api/api.php/doSearch?access_token=133688745fb3253a0b4c3cbb3f67d444cf4b418a&&city_id=4518&primary=Recommended&secondary=All").then(function(response){
+
+		defer.resolve(response.data);
+	},function(reason){
+
+		defer.reject(reason);
+	});
+	return defer.promise;
+}
+
+return factory;
+}	
+</script>
+
+
+
+</head>
+<body ng-app="myModule" style="margin-top: 10%;margin-left: 20%">
+	<div ng-controller="myController">
+		<input type="text" ng-model="name"/>
+		<label ng-bind="name"></label>
+		<button ng-click="clickFunction()">CLick Me</button>
+
+	</div>
+</body>
+
+</html>
